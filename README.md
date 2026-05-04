@@ -51,7 +51,7 @@ use container <- testcontainer.with_formula(formula)
 ## Install
 
 ```sh
-gleam add testcontainer_dockerfile@1
+gleam add testcontainer_dockerfile
 ```
 
 ## API
