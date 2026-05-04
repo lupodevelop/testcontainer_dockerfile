@@ -1,0 +1,14 @@
+FROM alpine:3.19
+
+ARG GREETING=hello
+
+ENV GREETING=${GREETING}
+
+RUN echo "${GREETING} from dev dockerfile" > /greeting.txt
+
+EXPOSE 8080
+
+HEALTHCHECK --interval=2s --timeout=1s --retries=3 \
+  CMD test -f /greeting.txt
+
+CMD ["sh", "-c", "cat /greeting.txt && sleep 3600"]
